@@ -47,5 +47,8 @@
   "types": "lib/index.d.ts",
   "files": [
     "lib"
-  ]
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
 }
