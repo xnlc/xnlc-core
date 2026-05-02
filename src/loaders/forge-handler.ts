@@ -263,7 +263,7 @@ export class ForgeHandler {
 
   private async isValidForgeInstallerArchive(installerPath: string): Promise<boolean> {
     try {
-      const AdmZip = (await import("adm-zip")).default;
+      const AdmZip = (await import("adm-zip/adm-zip.js")).default;
       const zip = new AdmZip(installerPath);
       return !!zip.getEntry("install_profile.json") || !!zip.getEntry("version.json");
     } catch {
@@ -353,7 +353,7 @@ export class ForgeHandler {
 
     await this.ensureInstallerArchive(installerUrl, installerDest, onProgress);
 
-    const AdmZip = (await import("adm-zip")).default;
+    const AdmZip = (await import("adm-zip/adm-zip.js")).default;
     const zip = new AdmZip(installerDest);
 
     const profileJson = zip.getEntry("install_profile.json");

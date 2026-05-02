@@ -6,7 +6,7 @@
 
 import * as path from "path";
 import * as fs from "fs";
-import AdmZip from "adm-zip";
+import AdmZip from "adm-zip/adm-zip.js";
 import { VersionJson, VersionJsonLibrary } from "../types/index.js";
 import { LibrariesManager } from "./libraries-manager.js";
 import { getNativesDir, getNativesClassifier, getNativesClassifierOld } from "../utils/index.js";

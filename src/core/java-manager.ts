@@ -239,7 +239,7 @@ export class JavaManager {
         throw new Error(`Failed to extract archive: ${archivePath}`);
       }
     } else if (archivePath.endsWith(".zip")) {
-      const AdmZip = (await import("adm-zip")).default;
+      const AdmZip = (await import("adm-zip/adm-zip.js")).default;
       const zip = new AdmZip(archivePath);
       zip.extractAllTo(destDir, true);
       // Handle nested directory (Zulu archives often have a top-level dir)

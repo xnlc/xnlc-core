@@ -202,7 +202,7 @@ export class NeoForgeHandler {
       onProgress: this.withPhase("downloading-installer", onProgress),
     });
 
-    const AdmZip = (await import("adm-zip")).default;
+    const AdmZip = (await import("adm-zip/adm-zip.js")).default;
     const zip = new AdmZip(installerDest);
 
     const profile = this.readInstallerJson<ForgeInstallerProfile>(zip, "install_profile.json");

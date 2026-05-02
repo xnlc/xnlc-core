@@ -437,7 +437,7 @@ export class ForgeLegacyHandler {
   }
 
   private async extractAndProcessInstaller(installerDest: string, fullVersion: string, mcVersion: string, profileName: string, versionDir: string, onProgress?: DownloadProgressCallback): Promise<VersionJson> {
-    const AdmZip = (await import("adm-zip")).default;
+    const AdmZip = (await import("adm-zip/adm-zip.js")).default;
     const zip = new AdmZip(installerDest);
     const profile = this.parseJsonEntry<ForgeInstallerProfile>(zip, "install_profile.json");
     const rawVersionJson = this.parseJsonEntry<VersionJson>(zip, "version.json");

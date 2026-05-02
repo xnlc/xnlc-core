@@ -288,7 +288,7 @@ export class OptifineHandler {
   }
 
   private async extractBundledLaunchwrapper(installerJar: string, launchWrapperVersion?: string): Promise<void> {
-    const AdmZip = (await import("adm-zip")).default;
+    const AdmZip = (await import("adm-zip/adm-zip.js")).default;
     const zip = new AdmZip(installerJar);
 
     const bundleVersion = launchWrapperVersion?.trim();
@@ -321,7 +321,7 @@ export class OptifineHandler {
   }
 
   private async detectLaunchwrapperVersion(installerJar: string, fallback?: string): Promise<string | undefined> {
-    const AdmZip = (await import("adm-zip")).default;
+    const AdmZip = (await import("adm-zip/adm-zip.js")).default;
     const zip = new AdmZip(installerJar);
 
     const versionEntry = zip.getEntry("launchwrapper-of.txt") ?? zip.getEntry("optifine/launchwrapper-of.txt");
