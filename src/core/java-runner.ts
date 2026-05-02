@@ -47,12 +47,19 @@ export class JavaRunner {
       console.error("DEBUG JVM/Game args:", allArgs.length);
     }
 
+    const platform = process.platform;
     const env: Record<string, string> = {
       ...process.env,
       APPDATA: process.env.APPDATA ?? gameDir,
-      XDG_SESSION_TYPE: "x11",
-      GLFW_PLATFORM: "x11",
     };
+
+    if (platform === "linux") {
+      env.XDG_SESSION_TYPE = process.env.XDG_SESSION_TYPE ?? "x11";
+      env.GLFW_PLATFORM = process.env.GLFW_PLATFORM ?? "x11";
+    } else {
+      delete env.XDG_SESSION_TYPE;
+      delete env.GLFW_PLATFORM;
+    }
 
     const child = spawn(javaPath, allArgs, {
       cwd: gameDir,
